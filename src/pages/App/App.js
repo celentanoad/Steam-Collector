@@ -3,17 +3,17 @@ import './App.css';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
-import TktksSecretPage from '../TktksSecretPage/TktksSecretPage'
-import * as tktkAPI from '../../services/tktk-api';
+import GamesSecretPage from '../GamesSecretPage/GamesSecretPage'
+import * as gameAPI from '../../services/game-api';
 import * as userAPI from '../../services/user-api';
-import Tktk from '../../components/Tktk/Tktk'
+import Game from '../../components/Game/Game'
 import NavBar from '../../components/NavBar/NavBar'
 
 class App extends Component {
   state = {
     // Initialize user if there's a token, otherwise null
     user: userAPI.getUser(),
-    tktks: null
+    games: null
   };
 
   /*--------------------------- Callback Methods ---------------------------*/
@@ -30,8 +30,8 @@ class App extends Component {
   /*-------------------------- Lifecycle Methods ---------------------------*/
 
   async componentDidMount() {
-    const tktks = await tktkAPI.index();
-    this.setState({ tktks });
+    const games = await gameAPI.index();
+    this.setState({ games });
   }
 
   /*-------------------------------- Render --------------------------------*/
@@ -39,7 +39,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Welcome to Tktk</h1>
+        <h1>Welcome to Game</h1>
         <NavBar
           user={this.state.user}
           handleLogout={this.handleLogout}
@@ -57,14 +57,14 @@ class App extends Component {
               handleSignupOrLogin={this.handleSignupOrLogin}
             />
           }/>
-          <Route exact path='/tktk-secret' render={() => 
+          <Route exact path='/game-secret' render={() => 
             userAPI.getUser() ? 
-              <TktksSecretPage />
+              <GamesSecretPage />
             :
               <Redirect to='/login'/>
           }/>
           <Route exact path='/' render={() =>
-            <Tktk />
+            <Game />
           }/>
         </Switch>
       </div>

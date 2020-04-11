@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, Segment } from 'semantic-ui-react';
+import { Menu } from 'semantic-ui-react';
 // import './NavBar.css';
 
  class NavBar extends Component {
@@ -50,9 +50,22 @@ import { Menu, Segment } from 'semantic-ui-react';
       </div>
       :
       <div>
-        <Link to='/login' className='NavBar-link'>Login</Link>
-        &nbsp;&nbsp;|&nbsp;&nbsp;
-        <Link to='/signup' className='NavBar-link'>Sign up</Link>
+        <Menu pointing secondary>
+          <Menu.Item
+            name='login'
+            active={activeItem === 'login'}
+            onClick={this.handleItemClick}
+            >
+            <Link to='/login' className='NavBar-link'>Login</Link>
+          </Menu.Item>
+          <Menu.Item
+            name='signup'
+            active={activeItem === 'signup'}
+            onClick={this.handleItemClick}
+            >
+            <Link to='/signup' className='NavBar-link'>Sign up</Link>
+          </Menu.Item>
+        </Menu>
       </div>;
     
       return (

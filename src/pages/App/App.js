@@ -13,7 +13,8 @@ class App extends Component {
   state = {
     // Initialize user if there's a token, otherwise null
     user: userAPI.getUser(),
-    games: null
+    games: [],
+    wishlist: []
   };
 
   /*--------------------------- Callback Methods ---------------------------*/
@@ -57,14 +58,20 @@ class App extends Component {
               handleSignupOrLogin={this.handleSignupOrLogin}
             />
           }/>
-          <Route exact path='/wishlist' render={() => 
+          <Route exact path='/account' render={() => 
             userAPI.getUser() ? 
               <UserPage user={this.state.user}/>
             :
               <Redirect to='/login'/>
           }/>
-          <Route exact path='/' render={() =>
-            <Game />
+          <Route exact path='/users' render={() => 
+            userAPI.getUser() ? 
+              <UserPage user={this.state.user}/>
+            :
+              <Redirect to='/login'/>
+          }/>
+          <Route exact path='/wishlist' render={() =>
+            <Wishlist games={this.state.wishlist} />
           }/>
         </Switch>
       </div>

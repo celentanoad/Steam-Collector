@@ -3,7 +3,7 @@ import './App.css';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
-import GamesSecretPage from '../GamesSecretPage/GamesSecretPage'
+import UserPage from '../UserPage/UserPage'
 import * as gameAPI from '../../services/game-api';
 import * as userAPI from '../../services/user-api';
 import Game from '../../components/Game/Game'
@@ -39,7 +39,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Welcome to Game</h1>
+        <h1>Welcome to Steam Collector</h1>
         <NavBar
           user={this.state.user}
           handleLogout={this.handleLogout}
@@ -57,9 +57,9 @@ class App extends Component {
               handleSignupOrLogin={this.handleSignupOrLogin}
             />
           }/>
-          <Route exact path='/game-secret' render={() => 
+          <Route exact path='/wishlist' render={() => 
             userAPI.getUser() ? 
-              <GamesSecretPage />
+              <UserPage user={this.state.user}/>
             :
               <Redirect to='/login'/>
           }/>

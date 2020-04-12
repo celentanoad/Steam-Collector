@@ -6,8 +6,9 @@ import LoginPage from '../LoginPage/LoginPage';
 import UserPage from '../UserPage/UserPage'
 import * as gameAPI from '../../services/game-api';
 import * as userAPI from '../../services/user-api';
-import Game from '../../components/Game/Game'
-import NavBar from '../../components/NavBar/NavBar'
+import GamePage from '../../pages/GamePage/GamePage';
+import NavBar from '../../components/NavBar/NavBar';
+import WishListPage from '../../pages/WishListPage/WishListPage';
 
 class App extends Component {
   state = {
@@ -58,9 +59,9 @@ class App extends Component {
               handleSignupOrLogin={this.handleSignupOrLogin}
             />
           }/>
-          <Route exact path='/account' render={() => 
+          <Route exact path='/games' render={() => 
             userAPI.getUser() ? 
-              <UserPage user={this.state.user}/>
+              <GamePage user={this.state.user}/>
             :
               <Redirect to='/login'/>
           }/>
@@ -71,7 +72,7 @@ class App extends Component {
               <Redirect to='/login'/>
           }/>
           <Route exact path='/wishlist' render={() =>
-            <Wishlist games={this.state.wishlist} />
+            <WishListPage games={this.state.wishlist} />
           }/>
         </Switch>
       </div>

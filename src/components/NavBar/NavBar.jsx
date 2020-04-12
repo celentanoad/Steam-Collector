@@ -21,7 +21,7 @@ import { Menu } from 'semantic-ui-react';
             active={activeItem === 'home'}
             onClick={this.handleItemClick}
             >
-            <Link to ='' className='NavBar-Link'>View All My Games</Link>
+            <Link to ='/games' className='NavBar-Link'>View All My Games</Link>
           </Menu.Item>
           <Menu.Item
             name='wishlist'
@@ -35,7 +35,7 @@ import { Menu } from 'semantic-ui-react';
             active={activeItem === 'users'}
             onClick={this.handleItemClick}
             >
-              <Link to=''> View All Users</Link>
+              <Link to='/users'> View All Users</Link>
           </Menu.Item>
           <Menu.Menu position='right'>
             <Menu.Item

@@ -4,7 +4,9 @@ const Game = require('../models/game');
 module.exports = {
   create,
   show,
-  index
+  index,
+  update,
+  delete: deleteOne
 };
 
 async function index(req, res) {
@@ -34,7 +36,26 @@ async function show(req, res) {
     res.json(game);
   }
   catch(err){
-    res.json(err)
+    res.json(err);
   }
 }
 
+async function update(req, res) {
+  try {
+    const updatedGame = await Game.findByIdAndUpdate(req.params.id);
+    res.json(updatedGame);
+  }
+  catch(err) {
+    res.json(err);
+  }
+}
+
+async function deleteOne(req, res) {
+  try {
+    const deletedGame = await Game.findByIdAndDelete(req.params.id);
+    res.json(deletedGame);
+  }
+  catch(err) {
+    res.json(err);
+  }
+}

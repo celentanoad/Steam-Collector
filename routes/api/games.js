@@ -12,6 +12,8 @@ router.use(require('../../config/auth'));
 router.get('/', gamesCtrl.index);
 router.post('/', gamesCtrl.create);
 router.get('/:id', gamesCtrl.show);
+router.put('/:id', gamesCtrl.update);
+router.delete('/:id', gamesCtrl.delete);
 
 /*----------------------------- Helper Functions ----------------------------*/
 

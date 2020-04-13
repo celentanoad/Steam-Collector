@@ -5,3 +5,9 @@
   align-items: center;
   margin-bottom: 50px;
 }
+
+
+.App-title {
+  font-family: 'Girassol', cursive;
+  font-size: 45px;
+}

@@ -14,28 +14,28 @@ import './NavBar.css';
     const {activeItem} = this.state
 
      let nav = this.props.user ?
-      <div className='NavBar'>
+      <div>
         <Menu pointing secondary>
           <Menu.Item
             name='home'
             active={activeItem === 'home'}
             onClick={this.handleItemClick}
             >
-            <Link to ='/games' className='NavBar-Link'>View All My Games</Link>
+            <Link to ='/games' className='NavBar-link'>View All My Games</Link>
           </Menu.Item>
           <Menu.Item
             name='wishlist'
             active={activeItem === 'wishlist'}
             onClick={this.handleItemClick}
             >
-            <Link to ='/wishlist' className='NavBar-Link'>View Wishlist</Link>
+            <Link to ='/wishlist' className='NavBar-link'>View Wishlist</Link>
           </Menu.Item>
           <Menu.Item
             name='users'
             active={activeItem === 'users'}
             onClick={this.handleItemClick}
             >
-              <Link to='/users'> View All Users</Link>
+              <Link to='/users' className='NavBar-link'> View All Users</Link>
           </Menu.Item>
           <Menu.Menu position='right'>
             <Menu.Item

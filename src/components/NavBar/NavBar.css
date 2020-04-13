@@ -2,13 +2,14 @@
   display: flex;
   justify-content: center;
   margin: 0 0 20px;
+  font-family: 'Girassol', cursive;
+
 }
 
 .NavBar-link {
   margin: 0 10px;
-  
-}
-
-.NavBar-welcome {
+  font-family: 'Girassol', cursive;
+  font-size: 25px;
   color: grey;
 }
+

@@ -20,6 +20,7 @@ async function index(req, res) {
 async function create(req, res) {
   try {
     const game = await Game.create(req.body);
+    console.log(req.body)
     res.json(game);
   }
   catch(err){

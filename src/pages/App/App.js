@@ -10,6 +10,7 @@ import GamePage from '../GamePage/GamePage';
 import NavBar from '../../components/NavBar/NavBar';
 import WishListPage from '../WishListPage/WishListPage';
 import NewGamePage from '../NewGamePage/NewGamePage';
+import GameDetailsPage from '../GameDetailsPage/GameDetailsPage';
 
 class App extends Component {
   state = {

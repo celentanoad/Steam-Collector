@@ -1,8 +1,16 @@
 import React from 'react';
+import {Link, Route} from 'react-router-dom';
+import GameDetailsPage from '../../pages/GameDetailsPage/GameDetailsPage';
 
-const CurrentGames = () => {
+const CurrentGames = (props) => {
     return ( 
-        <p>These games are currently being played: </p>
+        <>
+        <Link to={`/games/${props.game.id}`} key={props.game.name}>{props.game.name}</Link>
+          
+        <Route exact path='/games/:id' render={(props) =>
+            <GameDetailsPage {...props}/>
+        } />
+        </>
      );
 }
  

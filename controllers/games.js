@@ -21,8 +21,9 @@ async function index(req, res) {
 
 async function create(req, res) {
   try {
+    req.body.createdBy = req.user._id;
     const game = await Game.create(req.body);
-    console.log(req.body);
+    console.log(game.createdBy);
     res.json(game);
   }
   catch(err){

@@ -1,13 +1,17 @@
 import React from 'react';
+import {Route, Link} from 'react-router-dom';
+import GameDetailsPage from '../../pages/GameDetailsPage/GameDetailsPage';
+
 
 const CompletedGames = (props) => {
     return ( 
         <>
-        <p>These games have been completed: </p>
-        {props.games.map(game => 
-            <div>{game.name}</div>)
-     }
-     </>
+        <Link to={`/games/${props.game.id}`} key={props.game.name}>{props.game.name}</Link>
+          
+        <Route exact path='/games/:id' render={(props) =>
+            <GameDetailsPage {...props}/>
+        } />
+        </>
     )
 }
  

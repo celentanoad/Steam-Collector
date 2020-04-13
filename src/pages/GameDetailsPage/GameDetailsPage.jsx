@@ -1,9 +1,12 @@
 import React from 'react';
-import GameDetails from '../../components/GameDetails/GameDetails';
 
-const GameDetailsPage = () => {
+const GameDetailsPage = (props) => {
     return ( 
-        <GameDetails />
+        <>
+            {props.game.name}
+            {props.game.type}
+        
+        </>
      );
 }
  

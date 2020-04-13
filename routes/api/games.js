@@ -9,11 +9,11 @@ const gamesCtrl = require('../../controllers/games');
 
 // Process the token for only the routes below
 router.use(require('../../config/auth'));
-router.get('/', gamesCtrl.index);
-router.post('/', gamesCtrl.create);
-router.get('/:id', gamesCtrl.show);
-router.put('/:id', gamesCtrl.update);
-router.delete('/:id', gamesCtrl.delete);
+router.get('/', checkAuth, gamesCtrl.index);
+router.post('/', checkAuth, gamesCtrl.create);
+router.get('/:id', checkAuth, gamesCtrl.show);
+router.put('/:id', checkAuth, gamesCtrl.update);
+router.delete('/:id', checkAuth, gamesCtrl.delete);
 
 /*----------------------------- Helper Functions ----------------------------*/
 

@@ -2,7 +2,7 @@ import tokenService from './tokenService';
 
 const BASE_URL = '/api/games/';
 
-export function index() {
+export function getAll() {
   const options = {
     method: 'GET',
     headers: {

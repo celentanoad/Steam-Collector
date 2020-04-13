@@ -6,9 +6,10 @@ import LoginPage from '../LoginPage/LoginPage';
 import UserPage from '../UserPage/UserPage'
 import * as gameAPI from '../../services/game-api';
 import * as userAPI from '../../services/user-api';
-import GamePage from '../../pages/GamePage/GamePage';
+import GamePage from '../GamePage/GamePage';
 import NavBar from '../../components/NavBar/NavBar';
-import WishListPage from '../../pages/WishListPage/WishListPage';
+import WishListPage from '../WishListPage/WishListPage';
+import NewGamePage from '../NewGamePage/NewGamePage';
 
 class App extends Component {
   state = {
@@ -29,10 +30,17 @@ class App extends Component {
     this.setState({user: userAPI.getUser()});
   }
 
+  handleAddGame =  async newGameData => {
+    const newGame = await gameAPI.create(newGameData);
+    this.setState(state => ({
+      games: [...state.games, newGame]
+    }), this.props.history.push('/games'))
+  }
+
   /*-------------------------- Lifecycle Methods ---------------------------*/
 
   async componentDidMount() {
-    const games = await gameAPI.index();
+    const games = await gameAPI.getAll();
     this.setState({ games });
   }
 
@@ -61,7 +69,10 @@ class App extends Component {
           }/>
           <Route exact path='/games' render={() => 
             userAPI.getUser() ? 
-              <GamePage user={this.state.user}/>
+              <GamePage 
+                user={this.state.user}
+                games={this.state.games}
+              />
             :
               <Redirect to='/login'/>
           }/>
@@ -72,7 +83,16 @@ class App extends Component {
               <Redirect to='/login'/>
           }/>
           <Route exact path='/wishlist' render={() =>
-            <WishListPage games={this.state.wishlist} />
+            userAPI.getUser() ? 
+              <WishListPage games={this.state.wishlist} />
+              :
+              <Redirect to='/login'/>
+          }/>
+          <Route exact path='/add' render={() =>
+            userAPI.getUser() ?
+              <NewGamePage handleAddGame={this.handleAddGame}/>
+              :
+              <Redirect to='/login' />
           }/>
         </Switch>
       </div>

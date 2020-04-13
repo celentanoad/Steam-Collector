@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu } from 'semantic-ui-react';
-// import './NavBar.css';
+import './NavBar.css';
 
  class NavBar extends Component {
 
@@ -14,7 +14,7 @@ import { Menu } from 'semantic-ui-react';
     const {activeItem} = this.state
 
      let nav = this.props.user ?
-      <div>
+      <div className='NavBar'>
         <Menu pointing secondary>
           <Menu.Item
             name='home'

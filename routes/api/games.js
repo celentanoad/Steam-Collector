@@ -4,13 +4,14 @@ const gamesCtrl = require('../../controllers/games');
 
 /*------------------------------ Public Routes ------------------------------*/
 
-router.get('/', checkAuth, gamesCtrl.index);
 
 /*----------------------------- Protected Routes ----------------------------*/
 
 // Process the token for only the routes below
 router.use(require('../../config/auth'));
-router.post('/', checkAuth, gamesCtrl.create);
+router.get('/', gamesCtrl.index);
+router.post('/', gamesCtrl.create);
+router.get('/:id', gamesCtrl.show);
 
 /*----------------------------- Helper Functions ----------------------------*/
 

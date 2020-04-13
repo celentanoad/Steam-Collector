@@ -1,24 +1,19 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 const bcrypt = require('bcrypt');
 
 const SALT_ROUNDS = 6;
 
-const gamesSchema = new mongoose.Schema({
-  name: String,
-  type: String,
-  status: {type: String, enum: ["Completed", "Currently Playing", "Not Yet Played"]},
-  rating: {type: String, enum: ["1", "2", "3", "4", "5"]}
-});
 
-const userSchema = new mongoose.Schema({
+const userSchema = new Schema({
   name: String,
   email: {type: String, required: true, lowercase: true, unique: true},
   password: String,
-  ownedGames: [gamesSchema],
   wishList: [],
 }, {
   timestamps: true
 });
+
 
 userSchema.set('toJSON', {
   transform: function(doc, ret) {

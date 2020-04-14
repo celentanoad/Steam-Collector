@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import * as gameAPI from '../../services/game-api';
-import { Card } from 'semantic-ui-react';
+import { Card, Button } from 'semantic-ui-react';
+import {Link} from 'react-router-dom';
 
 
 class GameDetailsPage extends Component {
@@ -10,7 +11,6 @@ class GameDetailsPage extends Component {
 
     async componentDidMount() {
         const game = await gameAPI.getGame(this.props.match.params.id);
-        console.log(game);
         this.setState({game: game})
     }
 
@@ -29,6 +29,17 @@ class GameDetailsPage extends Component {
                         :
                         <></>}
                     </Card.Description>
+                        {this.props.user._id === this.state.game.createdBy ?
+                        <Link to={`/games/${this.state.game._id}/edit`}>Edit</Link>
+                        :
+                        <></>}
+                        {this.props.user._id === this.state.game.createdBy ?
+                        <Button
+                        onClick={() => this.props.handleDeleteGame(this.state.game._id)}
+                        >Delete</Button>
+                        :
+                        <></>}
+                        
                 </Card.Content>
             </Card>
             

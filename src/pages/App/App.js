@@ -11,6 +11,7 @@ import NavBar from '../../components/NavBar/NavBar';
 import WishListPage from '../WishListPage/WishListPage';
 import NewGamePage from '../NewGamePage/NewGamePage';
 import GameDetailsPage from '../GameDetailsPage/GameDetailsPage';
+import EditGamePage from '../EditGamePage/EditGamePage';
 
 class App extends Component {
   state = {
@@ -38,6 +39,22 @@ class App extends Component {
     }), this.props.history.push('/games'))
   }
 
+  handleDeleteGame = async id => {
+    await gameAPI.deleteGame(id);
+    this.setState(state => ({
+      games: state.games.filter(game => game._id !== id)
+    }), () => this.props.history.push('/games'));
+  }
+
+  handleUpdateGame = async updatedGameData => {
+    const updatedGame = await gameAPI.update(updatedGameData);
+    const newGamesList = this.state.games.map(game =>
+      game._id === updatedGame._id ? updatedGame : game);
+      this.setState(
+        {games: newGamesList}, () => this.props.history.push('/games')
+      );
+  }
+  
   /*-------------------------- Lifecycle Methods ---------------------------*/
 
   async componentDidMount() {
@@ -68,39 +85,49 @@ class App extends Component {
               handleSignupOrLogin={this.handleSignupOrLogin}
             />
           }/>
-          <Route exact path='/games' render={() => 
+          <Route exact path='/games' render={({history}) => 
             userAPI.getUser() ? 
               <GamePage 
                 user={this.state.user}
                 games={this.state.games}
+                handleDeleteGame={this.handleDeleteGame}
               />
             :
               <Redirect to='/login'/>
           }/>
-          <Route exact path='/users' render={() => 
+          <Route exact path='/users' render={({history}) => 
             userAPI.getUser() ? 
               <UserPage user={this.state.user}/>
             :
               <Redirect to='/login'/>
           }/>
-          <Route exact path='/wishlist' render={() =>
+          <Route exact path='/wishlist' render={({history}) =>
             userAPI.getUser() ? 
               <WishListPage games={this.state.wishlist} />
               :
               <Redirect to='/login'/>
           }/>
-          <Route exact path='/add' render={() =>
+          <Route exact path='/add' render={({history}) =>
             userAPI.getUser() ?
               <NewGamePage handleAddGame={this.handleAddGame}/>
               :
               <Redirect to='/login' />
           }/>
-             <Route exact path='/games/:id' render={(props) =>
-             userAPI.getUser() ?
-            <GameDetailsPage {...props}/>
-            :
-            <Redirect to='/login' />
-        } />
+            <Route exact path='/games/:id' render={(props) =>
+              userAPI.getUser() ?
+              <GameDetailsPage {...props} handleDeleteGame={this.handleDeleteGame} user={this.state.user}/>
+              :
+              <Redirect to='/login' />
+          } />
+            <Route exact path='/games/:id/edit' render={({history, location}) =>
+              userAPI.getUser() ?
+              <EditGamePage 
+                handleUpdateGame={this.handleUpdateGame}
+                location={location}
+              />
+              :
+              <Redirect to='/login' />
+          } />
         </Switch>
       </div>
     );

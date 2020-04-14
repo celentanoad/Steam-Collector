@@ -16,20 +16,14 @@ const rating = [
     {key: '5', text: '5', value: '5'}
 ]
 
-class NewGamePage extends Component {
+class EditGamePage extends Component {
     state = { 
-        formData: {
-            name: '',
-            type: '',
-            status: 'Not Yet Played',
-            rating: 'N/A'
-        }
-     };
+        formData: this.props.location.state.game
+    };
 
      handleChange = e => {
-         const formData = {...this.state.formData, [e.target.name]: e.target.value};
          this.setState({
-             formData,
+             formData: {...this.state.formData, [e.target.name]: e.target.value}
          });
      }
 
@@ -41,13 +35,13 @@ class NewGamePage extends Component {
 
      handleSubmit = e => {
          e.preventDefault();
-         this.props.handleAddGame(this.state.formData);
+         this.props.handleUpdateGame(this.state.formData);
      }
 
     render() { 
         return ( 
             <>
-            <h1>Add a game</h1>
+            <h1>Edit Game</h1>
                 <Form onSubmit={this.handleSubmit}>
                     <Form.Field>
                         <label>Name: </label>
@@ -83,7 +77,7 @@ class NewGamePage extends Component {
                         value={this.state.formData.rating}
                         onChange= {(e, value) => {this.handleSelectionChange(e, value, 'rating')}}
                     />
-                    <Button type="submit">Add Game</Button>
+                    <Button type="submit">Submit</Button>
                 </Form>
             </>
          );
@@ -91,4 +85,4 @@ class NewGamePage extends Component {
 }
 
  
-export default NewGamePage;
+export default EditGamePage;

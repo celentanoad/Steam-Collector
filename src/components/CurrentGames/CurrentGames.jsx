@@ -1,10 +1,18 @@
 import React from 'react';
-import {Link, Route} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 const CurrentGames = (props) => {
     return ( 
         <>
-        <Link to={`/games/${props.game.id}`} key={props.game.name}>{props.game.name}</Link>
+            {props.user._id === props.game.createdBy ?
+            <Link 
+                to={`/games/${props.game._id}`} 
+                key={props.game.name}
+                handleDeleteGame={props.handleDeleteGame}
+                user={props.user}
+            >{props.game.name}</Link>
+            :
+            <></>}
         </>
      );
 }

@@ -95,6 +95,12 @@ class App extends Component {
               :
               <Redirect to='/login' />
           }/>
+             <Route exact path='/games/:id' render={(props) =>
+             userAPI.getUser() ?
+            <GameDetailsPage {...props}/>
+            :
+            <Redirect to='/login' />
+        } />
         </Switch>
       </div>
     );

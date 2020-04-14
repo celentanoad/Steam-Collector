@@ -24,3 +24,15 @@ export function create(score) {
   };
   return fetch(BASE_URL, options).then(res => res.json());
 }
+
+
+export function getGame(id) {
+  const options = {
+    method: 'GET',
+    headers: {
+      'Authorization': 'Bearer ' + tokenService.getToken()
+    }
+  };
+  return fetch(`${BASE_URL}${id}`, options, {mode: "cors"})
+  .then(res => res.json())
+}

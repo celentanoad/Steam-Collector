@@ -5,12 +5,8 @@ import './NotPlayedGames.css'
 
 const NotPlayedGames = (props) => {
     return (  
-        <div className='NotPlayedGames'>
+        <div>
         <Link to={`/games/${props.game.id}`} key={props.game.name}>{props.game.name}</Link>
-          
-        <Route exact path='/games/:id' render={(props) =>
-            <GameDetailsPage {...props}/>
-        } />
         </div>
     );
 }

@@ -6,11 +6,17 @@ import GameDetailsPage from '../../pages/GameDetailsPage/GameDetailsPage';
 const CompletedGames = (props) => {
     return ( 
         <>
-        <Link to={`/games/${props.game.id}`} key={props.game.name}>{props.game.name}</Link>
-          
-        <Route exact path='/games/:id' render={(props) =>
-            <GameDetailsPage {...props}/>
-        } />
+        {props.user._id === props.game.createdBy ?
+        <Link 
+            to={`/games/${props.game._id}`} 
+            key={props.game.name} 
+            game={props.game}
+            >
+                {props.game.name}
+        </Link>
+        :
+        <></>}
+   
         </>
     )
 }

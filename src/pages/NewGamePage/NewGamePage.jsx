@@ -33,6 +33,12 @@ class NewGamePage extends Component {
          });
      }
 
+     handleSelectionChange = (e, {value}, name) => {
+        this.setState({
+            formData: {...this.state.formData, [name]: value}
+        });
+     }
+
      handleSubmit = e => {
          e.preventDefault();
          this.props.handleAddGame(this.state.formData);
@@ -63,20 +69,24 @@ class NewGamePage extends Component {
                         fluid
                         label='Status'
                         options={status}
-                        placeholder='Status'
+                        name='status'
+                        value={this.state.formData.status}
+                        onChange= {(e, value) => {this.handleSelectionChange(e, value, 'status')}}
                     />
                      <Form.Select 
                         fluid
                         label='Rating'
                         options={rating}
-                        placeholder='Rating'
+                        name='rating'
+                        value={this.state.formData.rating}
+                        onChange= {(e, value) => {this.handleSelectionChange(e, value, 'rating')}}
                     />
                     <Button type="submit">Add Game</Button>
-
                 </Form>
             </>
          );
     }
 }
+
  
 export default NewGamePage;

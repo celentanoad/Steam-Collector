@@ -4,12 +4,19 @@ const bcrypt = require('bcrypt');
 
 const SALT_ROUNDS = 6;
 
+const wishlistSchema = new Schema({
+  name: {type: String, required: true},
+  type: {type: String, required: true},
+  status: {type: String, enum: ["Completed", "Currently Playing", "Not Yet Played"]},
+  rating: {type: String, enum: ["N/A", "1", "2", "3", "4", "5"]},
+});
+
 
 const userSchema = new Schema({
   name: String,
   email: {type: String, required: true, lowercase: true, unique: true},
   password: String,
-  wishList: [],
+  wishList: [wishlistSchema],
 }, {
   timestamps: true
 });

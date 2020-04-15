@@ -6,7 +6,7 @@ const CompletedGames = (props) => {
         <>
             {props.user._id === props.game.createdBy ?
             <Link 
-                to={`/games/${props.game._id}`} 
+                to={`/games/${props.game._id}`}
                 key={props.game.name}
                 handleDeleteGame={props.handleDeleteGame}
                 user={props.user}

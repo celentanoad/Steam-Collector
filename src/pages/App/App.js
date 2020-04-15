@@ -3,7 +3,7 @@ import './App.css';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
-import UserPage from '../UserPage/UserPage'
+import UserPage from '../AllGamesPage/AllGamesPage'
 import * as gameAPI from '../../services/game-api';
 import * as userAPI from '../../services/user-api';
 import GamePage from '../GamePage/GamePage';

@@ -1,16 +1,17 @@
-import React, {Component} from 'react';
-import * as wishlistAPI from '../../services/wishlist-api';
+import React from 'react';
+import WishListItem from '../../components/WishlistItem/WishListItem';
 
-class WishListPage extends Component {
-    state = { 
-        wishlist: []
-     }
-
-    render() { 
-        return ( 
-            <h3>Coming Soon!</h3>
+const WishListPage = (props) => {
+    return (
+        <>
+        {props.wishlist ?
+        props.wishlist.map(game =>
+            <WishListItem game={game} handleRemoveFromList={props.handleRemoveFromList}/>
         )
-    }
+        :
+        <h4>There are no games on your wishlist</h4>}
+        </>
+    );
 }
  
 export default WishListPage;

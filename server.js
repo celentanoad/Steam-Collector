@@ -19,6 +19,7 @@ app.use(express.static(path.join(__dirname, 'build')));
 
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/games', require('./routes/api/games'));
+app.use('/api/wishlist', require('./routes/api/wishlist'));
 
 // All API routes should be above this comment
 // Sends all other GET requests to build/index.html

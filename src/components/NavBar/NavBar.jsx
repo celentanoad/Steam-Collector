@@ -21,7 +21,7 @@ import './NavBar.css';
             active={activeItem === 'home'}
             onClick={this.handleItemClick}
             >
-            <Link to ='/games' className='NavBar-link'>View All My Games</Link>
+            <Link to ='/games' className='NavBar-link'>View My Games</Link>
           </Menu.Item>
           <Menu.Item
             name='wishlist'
@@ -31,11 +31,11 @@ import './NavBar.css';
             <Link to ='/wishlist' className='NavBar-link'>View Wishlist</Link>
           </Menu.Item>
           <Menu.Item
-            name='users'
-            active={activeItem === 'users'}
+            name='allgames'
+            active={activeItem === 'allgames'}
             onClick={this.handleItemClick}
             >
-              <Link to='/users' className='NavBar-link'> View All Users</Link>
+              <Link to='/allgames' className='NavBar-link'> View All Games</Link>
           </Menu.Item>
           <Menu.Menu position='right'>
             <Menu.Item

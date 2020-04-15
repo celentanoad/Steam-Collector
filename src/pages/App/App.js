@@ -3,9 +3,10 @@ import './App.css';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
-import UserPage from '../AllGamesPage/AllGamesPage'
+import AllGamesPage from '../AllGamesPage/AllGamesPage'
 import * as gameAPI from '../../services/game-api';
 import * as userAPI from '../../services/user-api';
+import * as wishlistAPI from '../../services/wishlist-api';
 import GamePage from '../GamePage/GamePage';
 import NavBar from '../../components/NavBar/NavBar';
 import WishListPage from '../WishListPage/WishListPage';
@@ -54,7 +55,22 @@ class App extends Component {
         {games: newGamesList}, () => this.props.history.push('/games')
       );
   }
+
+  handleAddtoList = async wishlistGame => {
+    console.log(wishlistGame);
+    const newGame = await wishlistAPI.add(wishlistGame);
+    this.setState(state => ({
+      wishlist: [...state.wishlist, newGame]
+    }), this.props.history.push('/wishlist'))
+  }
   
+  handleRemovefromList = async wishlistGame => {
+    await wishlistAPI.remove(wishlistGame);
+    this.setState(state => ({
+      wishlist: state.wishlist.filter(game => game._id !== wishlistGame)
+    }), () => this.props.history.push('/wishlist'));
+  }
+
   /*-------------------------- Lifecycle Methods ---------------------------*/
 
   async componentDidMount() {
@@ -95,15 +111,15 @@ class App extends Component {
             :
               <Redirect to='/login'/>
           }/>
-          <Route exact path='/users' render={({history}) => 
+          <Route exact path='/allgames' render={({history}) => 
             userAPI.getUser() ? 
-              <UserPage user={this.state.user}/>
+              <AllGamesPage user={this.state.user} handleAddtoList={this.handleAddtoList}/>
             :
               <Redirect to='/login'/>
           }/>
           <Route exact path='/wishlist' render={({history}) =>
             userAPI.getUser() ? 
-              <WishListPage games={this.state.wishlist} />
+              <WishListPage wishlist={this.state.wishlist} handleRemovefromList={this.handleRemovefromList} />
               :
               <Redirect to='/login'/>
           }/>

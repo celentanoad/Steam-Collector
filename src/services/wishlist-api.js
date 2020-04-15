@@ -15,3 +15,13 @@ export function add(game) {
     return fetch(BASE_URL, options).then(res => res.json());
   }
 
+  export function remove(id) {
+    const options = {
+      method: 'DELETE',
+      headers: {
+        'Authorization': 'Bearer ' + tokenService.getToken()
+      }
+    };
+    return fetch(`${BASE_URL}${id}`, options, {mode: "cors"})
+    .then(res => res.json())
+  }

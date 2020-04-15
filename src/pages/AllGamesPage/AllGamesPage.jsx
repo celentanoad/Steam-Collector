@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import * as wishlistAPI from '../../services/wishlist-api';
 import * as gameAPI from '../../services/game-api';
+import GameList from '../../components/GameList/GameList';
 
 class AllGamesPage extends Component {
   state = { 
@@ -16,7 +16,11 @@ class AllGamesPage extends Component {
     return ( 
       <>
         {this.state.games.map(game =>
-          <div>{game.name}</div>
+          <GameList 
+            game={game} 
+            user={this.props.user}
+            handleAddtoList={this.props.handleAddtoList}
+          />
         )}
       </>
      );

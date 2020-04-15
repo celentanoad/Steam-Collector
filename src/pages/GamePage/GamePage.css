@@ -1,3 +1,7 @@
 .GamePage-link {
     margin-bottom: 10px;
 }
+
+.GamePage-segment {
+    width: 300px;
+}

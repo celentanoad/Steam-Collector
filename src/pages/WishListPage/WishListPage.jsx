@@ -6,8 +6,8 @@ class WishListPage extends Component {
      }
     render() { 
         return ( 
-            <h1>Wish List</h1>
-         );
+            <h3>Coming Soon!</h3>
+        )
     }
 }
  

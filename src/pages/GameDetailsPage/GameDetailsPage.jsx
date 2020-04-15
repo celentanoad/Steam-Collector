@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import * as gameAPI from '../../services/game-api';
 import { Card, Button } from 'semantic-ui-react';
 import {Link} from 'react-router-dom';
+import './GameDetails.css'
 
 
 class GameDetailsPage extends Component {
@@ -29,8 +30,11 @@ class GameDetailsPage extends Component {
                         :
                         <></>}
                     </Card.Description>
+                        <div className='GameDetails-btns'>
                         {this.props.user._id === this.state.game.createdBy ?
-                        <Link to={{pathname:'/edit', state: this.state.game}}>Edit</Link>
+                        <Link to={{pathname:'/edit', state: this.state.game}}>
+                            <Button>Edit</Button>
+                        </Link>
                         // <Link to={`/games/${this.state.game._id}/edit`}>Edit</Link>
                         :
                         <></>}
@@ -40,6 +44,7 @@ class GameDetailsPage extends Component {
                         >Delete</Button>
                         :
                         <></>}
+                        </div>
                         
                 </Card.Content>
             </Card>

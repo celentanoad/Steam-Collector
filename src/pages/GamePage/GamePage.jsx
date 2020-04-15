@@ -10,7 +10,7 @@ const GamePage = (props) => {
     return ( 
         <>
             <h1>Welcome, {props.user.name}!</h1>
-            <Segment>
+            <Segment className='GamePage-segment'>
                 <h3>Completed Games:</h3>
                 <Divider horizontal>
                     {props.games.map(game =>
@@ -27,7 +27,7 @@ const GamePage = (props) => {
                     )}
                 </Divider>
             </Segment>
-            <Segment>
+            <Segment className='GamePage-segment'>
                 <h3>Currently Playing:</h3>
                 <Divider horizontal>
                     {props.games.map(game =>
@@ -44,7 +44,7 @@ const GamePage = (props) => {
                     )}
                 </Divider>
             </Segment>
-            <Segment>
+            <Segment className='GamePage-segment'>
                 <h3>Not Yet Played:</h3>
                 <Divider horizontal>
                     {props.games.map(game =>
@@ -57,7 +57,7 @@ const GamePage = (props) => {
                         /> 
                     </div>
                     :
-                     <></>
+                    <></>
                     )}
                 </Divider>
             </Segment>

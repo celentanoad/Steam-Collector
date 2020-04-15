@@ -23,7 +23,6 @@ async function create(req, res) {
   try {
     req.body.createdBy = req.user._id;
     const game = await Game.create(req.body);
-    console.log(game.createdBy);
     res.json(game);
   }
   catch(err){
@@ -43,7 +42,7 @@ async function show(req, res) {
 
 async function update(req, res) {
   try {
-    const updatedGame = await Game.findByIdAndUpdate(req.params.id);
+    const updatedGame = await Game.findByIdAndUpdate(req.params.id, req.body, {new: true});
     res.json(updatedGame);
   }
   catch(err) {

@@ -10,7 +10,7 @@ const CompletedGames = (props) => {
                 key={props.game.name}
                 handleDeleteGame={props.handleDeleteGame}
                 user={props.user}
-                >{props.game.name}</Link>
+            >{props.game.name}</Link>
             :
             <></>}
         </>

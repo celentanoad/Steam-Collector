@@ -9,7 +9,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 ReactDOM.render(
   <Router>
   <React.StrictMode>
-    <Route render={({history}) => <App history={history} />} />
+    <Route render={({history, location}) => <App history={history} location={location} />} />
   </React.StrictMode>,
 
 </Router>,

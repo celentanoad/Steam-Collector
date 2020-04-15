@@ -17,9 +17,11 @@ const rating = [
 ]
 
 class EditGamePage extends Component {
-    state = { 
-        formData: this.props.location.state.game
-    };
+  
+        state = { 
+            formData: this.props.location.state
+        };
+    
 
      handleChange = e => {
          this.setState({
@@ -36,6 +38,7 @@ class EditGamePage extends Component {
      handleSubmit = e => {
          e.preventDefault();
          this.props.handleUpdateGame(this.state.formData);
+         console.log(this.state.formData)
      }
 
     render() { 

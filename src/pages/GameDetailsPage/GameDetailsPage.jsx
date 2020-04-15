@@ -5,10 +5,10 @@ import {Link} from 'react-router-dom';
 
 
 class GameDetailsPage extends Component {
+
     state = { 
         game: []
     }
-
     async componentDidMount() {
         const game = await gameAPI.getGame(this.props.match.params.id);
         this.setState({game: game})
@@ -30,7 +30,8 @@ class GameDetailsPage extends Component {
                         <></>}
                     </Card.Description>
                         {this.props.user._id === this.state.game.createdBy ?
-                        <Link to={`/games/${this.state.game._id}/edit`}>Edit</Link>
+                        <Link to={{pathname:'/edit', state: this.state.game}}>Edit</Link>
+                        // <Link to={`/games/${this.state.game._id}/edit`}>Edit</Link>
                         :
                         <></>}
                         {this.props.user._id === this.state.game.createdBy ?
@@ -47,6 +48,7 @@ class GameDetailsPage extends Component {
             </>
          );
     }
+
 }
  
 export default GameDetailsPage;

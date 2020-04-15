@@ -119,9 +119,9 @@ class App extends Component {
               :
               <Redirect to='/login' />
           } />
-            <Route exact path='/games/:id/edit' render={({history, location}) =>
+            <Route exact path='/edit' render={({history, location}) =>
               userAPI.getUser() ?
-              <EditGamePage 
+              <EditGamePage
                 handleUpdateGame={this.handleUpdateGame}
                 location={location}
               />

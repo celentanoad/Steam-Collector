@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import * as gameAPI from '../../services/game-api';
-import GameList from '../../components/GameList/GameList';
+import GameListItem from '../../components/GameListItem/GameListItem';
 
 class AllGamesPage extends Component {
   state = { 
@@ -9,14 +9,15 @@ class AllGamesPage extends Component {
 
    async componentDidMount() {
     const games = await gameAPI.getAll();
-    this.setState({ games });
+    const filteredGames = games.filter(game => game.createdBy !== this.props.user._id)
+    this.setState({ games: filteredGames });
   }
 
   render() { 
     return ( 
       <>
         {this.state.games.map(game =>
-          <GameList 
+          <GameListItem 
             game={game} 
             user={this.props.user}
             handleAddtoList={this.props.handleAddtoList}

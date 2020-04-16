@@ -5,8 +5,13 @@ const wishlistCtrl = require('../../controllers/wishlist');
 
 
 router.use(require('../../config/auth'));
-router.get('/', wishlistCtrl.getList);
-router.post('/', wishlistCtrl.add);
-router.delete('/:id', wishlistCtrl.remove);
+router.get('/', checkAuth, wishlistCtrl.getList);
+router.post('/', checkAuth, wishlistCtrl.add);
+router.delete('/:id', checkAuth, wishlistCtrl.remove);
+
+function checkAuth(req, res, next) {
+    if (req.user) return next();
+    return res.status(401).json({msg: 'Not Authorized'});
+  }
 
 module.exports = router;

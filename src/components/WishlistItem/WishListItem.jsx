@@ -5,7 +5,7 @@ const WishListItem = (props) => {
     return ( 
         <>
             {props.game.name}
-            <Button onClick={() => this.props.handleRemoveFromList(props.game.id)}>Remove from Wishlist</Button>
+            <Button onClick={() => props.handleRemoveFromList(props.game._id)}>Remove from Wishlist</Button>
         </>
      );
 }

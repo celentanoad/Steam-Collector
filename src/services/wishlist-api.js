@@ -25,3 +25,13 @@ export function add(game) {
     return fetch(`${BASE_URL}${id}`, options, {mode: "cors"})
     .then(res => res.json())
   }
+
+  export function getList() {
+    const options = {
+      method: 'GET',
+      headers: {
+        'Authorization': 'Bearer ' + tokenService.getToken()
+      }
+    };
+    return fetch(BASE_URL, options).then(res => res.json());
+  }

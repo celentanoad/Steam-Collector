@@ -2,22 +2,31 @@ const User = require('../models/user');
 
 module.exports = {
     add,
-    remove
+    remove,
+    getList
+}
+
+
+async function getList(req, res) {
+    try {
+        const user = await User.findById(req.user._id);
+        res.json(user.wishList);
+    }
+    catch(err) {
+        res.json(err);
+    }
 }
 
 async function add(req, res) {
-    console.log('add function');
     try {
         const user = await User.findById(req.user._id);
-        console.log(user)
         user.wishList.push(req.body);
         user.save(function(err) {
             res.json(user.wishList[user.wishList.length-1])
         })
     } 
     catch(err) {
-        console.log(err)
-            res.json(err)
+        res.json(err)
     }
     
 }

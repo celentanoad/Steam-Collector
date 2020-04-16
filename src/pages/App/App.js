@@ -64,10 +64,11 @@ class App extends Component {
     }), this.props.history.push('/wishlist'))
   }
   
-  handleRemovefromList = async wishlistGame => {
-    await wishlistAPI.remove(wishlistGame);
+  handleRemoveFromList = async wishlistId => {
+    console.log(wishlistId);
+    await wishlistAPI.remove(wishlistId);
     this.setState(state => ({
-      wishlist: state.wishlist.filter(game => game._id !== wishlistGame)
+      wishlist: state.wishlist.filter(game => game._id !== wishlistId)
     }), () => this.props.history.push('/wishlist'));
   }
 
@@ -75,7 +76,8 @@ class App extends Component {
 
   async componentDidMount() {
     const games = await gameAPI.getAll();
-    this.setState({ games });
+    const wishlist = await wishlistAPI.getList();
+    this.setState({ games, wishlist });
   }
 
   /*-------------------------------- Render --------------------------------*/
@@ -119,7 +121,7 @@ class App extends Component {
           }/>
           <Route exact path='/wishlist' render={({history}) =>
             userAPI.getUser() ? 
-              <WishListPage wishlist={this.state.wishlist} handleRemovefromList={this.handleRemovefromList} />
+              <WishListPage wishlist={this.state.wishlist} handleRemoveFromList={this.handleRemoveFromList} />
               :
               <Redirect to='/login'/>
           }/>

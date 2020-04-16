@@ -115,7 +115,11 @@ class App extends Component {
           }/>
           <Route exact path='/allgames' render={({history}) => 
             userAPI.getUser() ? 
-              <AllGamesPage user={this.state.user} handleAddtoList={this.handleAddtoList}/>
+              <AllGamesPage 
+                user={this.state.user} 
+                handleAddtoList={this.handleAddtoList}
+                wishlist={this.state.wishlist}
+              />
             :
               <Redirect to='/login'/>
           }/>

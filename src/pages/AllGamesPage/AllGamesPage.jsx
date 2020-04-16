@@ -20,6 +20,7 @@ class AllGamesPage extends Component {
             game={game} 
             user={this.props.user}
             handleAddtoList={this.props.handleAddtoList}
+            wishlist={this.props.wishlist}
           />
         )}
       </>

@@ -9,6 +9,7 @@ const wishlistSchema = new Schema({
   type: {type: String, required: true},
   status: {type: String, enum: ["Completed", "Currently Playing", "Not Yet Played"]},
   rating: {type: String, enum: ["N/A", "1", "2", "3", "4", "5"]},
+  createdBy: String
 });
 
 

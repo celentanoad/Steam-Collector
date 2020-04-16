@@ -30,7 +30,10 @@ class App extends Component {
   }
 
   handleSignupOrLogin = () => {
-    this.setState({user: userAPI.getUser()});
+    this.setState({
+      user: userAPI.getUser(),
+      wishlist: wishlistAPI.getList()
+    });
   }
 
   handleAddGame =  async newGameData => {
@@ -76,8 +79,7 @@ class App extends Component {
 
   async componentDidMount() {
     const games = await gameAPI.getAll();
-    const wishlist = await wishlistAPI.getList();
-    this.setState({ games, wishlist });
+    this.setState({ games });
   }
 
   /*-------------------------------- Render --------------------------------*/

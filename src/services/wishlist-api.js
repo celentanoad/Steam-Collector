@@ -12,7 +12,7 @@ export function add(game) {
       },
       body: JSON.stringify(game)
     };
-    return fetch(BASE_URL, options).then(res => res.json());
+    return fetch(BASE_URL, options, {mode: "cors"}).then(res => res.json());
   }
 
   export function remove(id) {

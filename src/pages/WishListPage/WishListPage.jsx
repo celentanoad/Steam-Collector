@@ -10,7 +10,7 @@ class WishListPage extends Component {
     async componentDidMount() {
         const wishlist = await wishlistAPI.getList();
         this.setState({ wishlist });
-      }
+    }
 
     render() { 
         return ( 

@@ -11,14 +11,19 @@ https://trello.com/b/qPsezBwh/steam-collector
 
 ## Screenshots
 
-
+![Games List Page](https://i.imgur.com/5gynUT1.png)
+![Wishlist Page](https://i.imgur.com/lZIqkMu.png)
 
 ## Technologies Used
-- MongoDB/Mongoose
+- MongoDB
 - Express
 - React
 - Node.js
 - Javascript
+- CSS
+- HTML
+- Git
+- Heroku
 
 ## User Experience
 

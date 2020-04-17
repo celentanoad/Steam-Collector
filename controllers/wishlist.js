@@ -37,7 +37,6 @@ async function remove(req, res) {
         const deletedGame = user.wishList.id(req.params.id);
         const idx = user.wishList.indexOf(deletedGame);
         user.wishList.splice(idx, 1);
-        console.log(user.wishList);
         user.save(function(err) {
             res.json(user.wishList)
         })

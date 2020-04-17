@@ -34,8 +34,8 @@ class App extends Component {
       user: userAPI.getUser(),
       wishlist: await wishlistAPI.getList()
     });
-    console.log(this.state.wishlist)
   }
+
 
   handleAddGame =  async newGameData => {
     const newGame = await gameAPI.create(newGameData);
@@ -109,7 +109,7 @@ class App extends Component {
           <Route exact path='/games' render={({history}) => 
             userAPI.getUser() ? 
               <GamePage 
-                user={this.state.user}
+                user={userAPI.getUser()}
                 games={this.state.games}
                 handleDeleteGame={this.handleDeleteGame}
               />

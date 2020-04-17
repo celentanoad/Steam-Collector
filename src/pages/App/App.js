@@ -64,7 +64,7 @@ class App extends Component {
     const newGame = await wishlistAPI.add(wishlistGame);
     this.setState(state => ({
       wishlist: [...state.wishlist, newGame]
-    }), this.props.history.push('/wishlist'))
+    }), this.props.history.push('/allgames'))
   }
   
   handleRemoveFromList = async wishlistId => {

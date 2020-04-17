@@ -1,70 +1,44 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Steam Collector
+Steam Collector is a simple website to keep track of your Steam games.  It  can be overwhelming to look at your Steam library and have so many choices of games to play.  Steam Collector makes it easy to see the games you have not played yet when you want to try something new, or which games you currently playing or already completed.
 
-## Available Scripts
+## Getting Started
 
-In the project directory, you can run:
+Check out Steam Collector here:
+https://steam-collector.herokuapp.com/
 
-### `npm start`
+Trello planning board:
+https://trello.com/b/qPsezBwh/steam-collector
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Screenshots
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technologies Used
+- MongoDB/Mongoose
+- Express
+- React
+- Node.js
+- Javascript
 
-### `npm run build`
+## User Experience
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### User Story #1
+##### Lenny lost his job as a bartender when all the bars and restaurants closed down, and when he isn't practicing making drinks at home, he wants to spend his free time playing video games.  Lenny doesn't want to spend his savings buying new games and instead looks to the hundreds of games in his Steam library. Lenny needs an easy way to organize his games so he can quickly keep track of which games he has yet to play.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### User Story #2
+##### Carl is a completionist and loves to spend hours finishing every side quest, finding every collection item, and earning every acheivement in the games he plays.  He has lots of games in his Steam library, and it is tedious for him to go through each game to see whether he has completed them.  Carl wants to categorize his games to keep track of which games he's completed, and which ones still need some work.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Next Steps
+- View other users' game lists
+- Search by game title
+- Implement Steam API
+- Filter games based on rating or type
+- Archive games from lists instead of deleting them permanently
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Credits
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+https://react.semantic-ui.com/
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-# steam-collector
-#### Started on: 04-10-2020
+https://github.com/DavidStinson/chajr

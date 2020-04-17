@@ -41,6 +41,7 @@ https://trello.com/b/qPsezBwh/steam-collector
 - Implement Steam API
 - Filter games based on rating or type
 - Archive games from lists instead of deleting them permanently
+- Include date that user last updated a game
 
 ## Credits
 

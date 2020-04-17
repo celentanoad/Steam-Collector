@@ -33,5 +33,5 @@ export function add(game) {
         'Authorization': 'Bearer ' + tokenService.getToken()
       }
     };
-    return fetch(BASE_URL, options).then(res => res.json());
+    return fetch(BASE_URL, options, {mode: "cors"}).then(res => res.json());
   }

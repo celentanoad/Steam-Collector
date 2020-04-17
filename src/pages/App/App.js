@@ -29,11 +29,12 @@ class App extends Component {
     this.setState({ user: null });
   }
 
-  handleSignupOrLogin = () => {
+  handleSignupOrLogin = async () => {
     this.setState({
       user: userAPI.getUser(),
-      wishlist: wishlistAPI.getList()
+      wishlist: await wishlistAPI.getList()
     });
+    console.log(this.state.wishlist)
   }
 
   handleAddGame =  async newGameData => {

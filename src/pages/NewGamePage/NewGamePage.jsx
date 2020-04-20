@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import { Form, Button } from 'semantic-ui-react';
+import './NewGamePage.css'
+
 
 const status = [
     {key: 'c', text: 'Completed', value: 'Completed'},
@@ -47,10 +49,11 @@ class NewGamePage extends Component {
     render() { 
         return ( 
             <>
-            <h1>Add a game</h1>
+            <h1>Add &nbsp; a &nbsp; game</h1>
+            <div className="NewGamePage-label">
                 <Form onSubmit={this.handleSubmit}>
                     <Form.Field>
-                        <label>Name: </label>
+                        <label>Name </label>
                         <input
                             name='name'
                             value={this.state.formData.name}
@@ -59,7 +62,7 @@ class NewGamePage extends Component {
                         />
                     </Form.Field>
                     <Form.Field>
-                        <label>Type: </label>
+                        <label>Type </label>
                             <input 
                                 name='type'
                                 value={this.state.formData.type}
@@ -85,6 +88,7 @@ class NewGamePage extends Component {
                     />
                     <Button type="submit">Add Game</Button>
                 </Form>
+                </div>
             </>
          );
     }

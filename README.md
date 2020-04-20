@@ -24,6 +24,7 @@ https://trello.com/b/qPsezBwh/steam-collector
 - HTML
 - Git
 - Heroku
+- Semantic UI React
 
 ## User Experience
 

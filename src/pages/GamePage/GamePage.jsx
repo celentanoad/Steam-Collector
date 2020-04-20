@@ -61,7 +61,7 @@ const GamePage = (props) => {
                     )}
                 </Divider>
             </Segment>
-            <Link to='/add'>Add a new game!</Link>
+            <Link to='/add' className="GamePage-add">Add a new game!</Link>
         
         </>
     );

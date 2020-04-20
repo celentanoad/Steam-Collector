@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { Form, Button } from 'semantic-ui-react';
+import './EditGamePage.css'
 
 const status = [
     {key: 'c', text: 'Completed', value: 'Completed'},
@@ -45,6 +46,7 @@ class EditGamePage extends Component {
         return ( 
             <>
             <h1>Edit Game</h1>
+            <div className="EditGamePage-label">
                 <Form onSubmit={this.handleSubmit}>
                     <Form.Field>
                         <label>Name: </label>
@@ -82,6 +84,7 @@ class EditGamePage extends Component {
                     />
                     <Button type="submit">Submit</Button>
                 </Form>
+                </div>
             </>
          );
     }

@@ -4,4 +4,10 @@
 
 .GamePage-segment {
     width: 350px;
+    color: black;
+}
+
+.GamePage-add {
+    font-size: 20px;
+    font-weight: 600;
 }

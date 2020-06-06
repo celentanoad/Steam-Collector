@@ -1,0 +1,17 @@
+.Footer {
+    font-family: 'Montserrat Alternates', sans-serif;
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 90px;
+    width: 100%;
+}
+
+.Footer-div {
+    display: block;
+    padding: 20px;
+    height: 60px;
+    width: 100%;
+}

@@ -13,6 +13,8 @@ import WishListPage from '../WishListPage/WishListPage';
 import NewGamePage from '../NewGamePage/NewGamePage';
 import GameDetailsPage from '../GameDetailsPage/GameDetailsPage';
 import EditGamePage from '../EditGamePage/EditGamePage';
+import Footer from '../../components/Footer/Footer';
+
 
 class App extends Component {
   state = {
@@ -154,6 +156,7 @@ class App extends Component {
               <Redirect to='/login' />
           } />
         </Switch>
+        <Footer />
       </div>
     );
   }
